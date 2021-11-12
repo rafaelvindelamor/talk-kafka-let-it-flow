@@ -1,0 +1,3 @@
+PROM25,{"promotionId":"PROM25","percentage":0.25}
+PROM50,{"promotionId":"PROM50","percentage":0.50}
+PROM75,{"promotionId":"PROM75","percentage":0.75}
