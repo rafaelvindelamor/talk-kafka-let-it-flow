@@ -39,7 +39,7 @@ object OrderPromotionEnricherTopology {
     val promotionApplied = branches("promotion_present")
       .join(promotions)(
         (_: OrderId, o: Order) => o.promotionId,
-        (o: Order, p: Promotion) => o.copy(price = o.price - (o.price * p.percentage))
+        (o: Order, p: Promotion) => o.copy(price = o.price * (1 - p.percentage))
       )
 
     // Merge two branches back
