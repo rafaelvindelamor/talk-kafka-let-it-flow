@@ -1,9 +1,9 @@
 package io.demo.kafka.streams
 
 import org.apache.kafka.streams.errors.StreamsUncaughtExceptionHandler
-
-import java.util.Properties
 import org.apache.kafka.streams.{KafkaStreams, StreamsConfig}
+
+import java.util.{Properties, UUID}
 
 object Application extends App {
 
@@ -12,7 +12,7 @@ object Application extends App {
   println(topology.describe())
 
   val config = new Properties()
-  config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orderPromotionEnricher111")
+  config.put(StreamsConfig.APPLICATION_ID_CONFIG, s"orderPromotionEnricher${UUID.randomUUID()}")
   config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
 
   val kafkaStreams = new KafkaStreams(topology, config)
