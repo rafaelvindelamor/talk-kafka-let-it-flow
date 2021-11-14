@@ -1,6 +1,5 @@
-872638716238,{"orderId":872638716238,"userId":761523,"productId":182736,"country":"en","quantity":1,"price":123,"promotionId":""}
-287368172366,{"orderId":287368172366,"userId":654236,"productId":176534,"country":"es","quantity":2,"price":224,"promotionId":""}
-918237618237,{"orderId":918237618237,"userId":198746,"productId":817263,"country":"es","quantity":1,"price":100,"promotionId":"PROM25"}
-172354445213,{"orderId":172354445213,"userId":235676,"productId":176534,"country":"es","quantity":1,"price":112,"promotionId":""}
-761237653413,{"orderId":761237653413,"userId":761523,"productId":182736,"country":"es","quantity":3,"price":300,"promotionId":"PROM50"}
-
+872638716238,{"orderId":872638716238,"userId":761523,"productId":182736,"quantity":1,"price":123,"promotionId":""}
+287368172366,{"orderId":287368172366,"userId":654236,"productId":176534,"quantity":2,"price":224,"promotionId":""}
+918237618237,{"orderId":918237618237,"userId":198746,"productId":817263,"quantity":1,"price":100,"promotionId":"PROM25"}
+172354445213,{"orderId":172354445213,"userId":235676,"productId":176534,"quantity":1,"price":112,"promotionId":""}
+761237653413,{"orderId":761237653413,"userId":761523,"productId":182736,"quantity":3,"price":300,"promotionId":"PROM50"}

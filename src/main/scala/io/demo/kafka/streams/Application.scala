@@ -23,5 +23,10 @@ object Application extends App {
   })
 
   println("Starting order promotion streams")
+
   kafkaStreams.start()
+
+  sys.ShutdownHookThread {
+    kafkaStreams.close()
+  }
 }
