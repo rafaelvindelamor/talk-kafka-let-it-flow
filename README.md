@@ -12,11 +12,15 @@
 
 In order to run the example in `io.demo.kafka.streams.Application`, you need to first start a Kafka broker. One of the easiest ways, as we are going to use ksqlDB later, is by using Confluent Platform. We decided to use `docker-compose` option:
 
-```docker-compose up -d```
+```
+docker-compose up -d
+```
 
 You can check the status with:
 
-```docker-compose ps```
+```
+docker-compose ps
+```
 
 To create and populate the topics used in the example, run the following scripts:
 - `scripts/topic-creation.sh`
@@ -26,6 +30,8 @@ If you want to see the output in realtime, run also the following script:
 - `scripts/topic-consume.sh`
 
 Finally, execute `io.demo.kafka.streams.Application` and you should see some events published and consumed by the previous consumer.
+
+Also, we are printing the `topology` in the `console`. If you want to visualize it, you can use this awesome tool: https://zz85.github.io/kafka-streams-viz/
 
 ### ksqlDB Examples
 
