@@ -1,0 +1,3 @@
+PROM25,{"id":"PROM25","percentage":0.25}
+PROM50,{"id":"PROM50","percentage":0.50}
+PROM75,{"id":"PROM75","percentage":0.75}

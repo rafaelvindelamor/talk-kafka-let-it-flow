@@ -1,11 +1,11 @@
 kafka-console-producer \
   --broker-list localhost:9092 \
-  --topic orders < orders.txt \
+  --topic orders < ../data/orders.txt \
   --property parse.key=true \
   --property key.separator=,
 
 kafka-console-producer \
   --broker-list localhost:9092 \
-  --topic promotions < promotions.txt \
+  --topic vouchers < ../data/vouchers.txt \
   --property parse.key=true \
   --property key.separator=,

@@ -6,9 +6,9 @@ kafka-topics \
 kafka-topics \
   --bootstrap-server localhost:9092 \
   --delete \
-  --topic promotions
+  --topic vouchers
 
 kafka-topics \
   --bootstrap-server localhost:9092 \
   --delete \
-  --topic orders-promotion-applied
+  --topic orders-voucher-applied

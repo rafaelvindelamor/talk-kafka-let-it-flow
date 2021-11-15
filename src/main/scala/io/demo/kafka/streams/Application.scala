@@ -7,12 +7,12 @@ import java.util.{Properties, UUID}
 
 object Application extends App {
 
-  val topology = OrderPromotionEnricherTopology()
+  val topology = OrderVoucherEnricherTopology()
 
   println(topology.describe())
 
   val config = new Properties()
-  config.put(StreamsConfig.APPLICATION_ID_CONFIG, s"orderPromotionEnricher${UUID.randomUUID()}")
+  config.put(StreamsConfig.APPLICATION_ID_CONFIG, s"orderVoucherEnricher${UUID.randomUUID()}")
   config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
 
   val kafkaStreams = new KafkaStreams(topology, config)
@@ -22,7 +22,7 @@ object Application extends App {
     StreamsUncaughtExceptionHandler.StreamThreadExceptionResponse.SHUTDOWN_APPLICATION
   })
 
-  println("Starting order promotion streams")
+  println("Starting order voucher streams")
 
   kafkaStreams.start()
 

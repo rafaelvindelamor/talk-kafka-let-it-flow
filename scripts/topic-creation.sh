@@ -7,7 +7,7 @@ kafka-topics \
 
 kafka-topics \
   --bootstrap-server localhost:9092 \
-  --topic promotions \
+  --topic vouchers \
   --replication-factor 1 \
   --partitions 3 \
   --create \
@@ -15,7 +15,7 @@ kafka-topics \
 
 kafka-topics \
   --bootstrap-server localhost:9092 \
-  --topic orders-promotion-applied \
+  --topic orders-voucher-applied \
   --replication-factor 1 \
   --partitions 3 \
   --create

@@ -3,8 +3,8 @@ package io.demo.kafka.streams
 object domain {
 
   type OrderId = String
-  type PromotionId = String
+  type VoucherId = String
 
-  case class Order(orderId: Long, userId: Long, productId: Long, quantity: Int, price: Double, promotionId: String)
-  case class Promotion(promotionId: String, percentage: Double)
+  case class Order(id: Long, userId: Long, productId: Long, quantity: Int, price: Double, voucherId: String)
+  case class Voucher(id: String, percentage: Double)
 }
