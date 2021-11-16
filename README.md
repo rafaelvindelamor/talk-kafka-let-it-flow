@@ -6,7 +6,7 @@
 - sbt 1.4.3
 - Docker
 - Kafka 3.0.0 (https://kafka.apache.org/downloads)
-- Confluent Platform (https://www.confluent.io/get-started/)
+- Confluent Platform (https://www.confluent.io/get-started/) (https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html)
 
 ### Kafka Streams Examples
 
