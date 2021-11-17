@@ -43,11 +43,17 @@ First, connect to ksqlDB:
 docker-compose exec ksqldb-cli ksql http://ksqldb-server:8088
 ```
 
+Configure `auto.offset.reset`:
+
+```
+SET 'auto.offset.reset'='earliest';
+```
+
 Now, create the `stream` from the `orders` topic:
 
 ```
 CREATE STREAM orders_stream (
-    orderId BIGINT,
+    id BIGINT,
     productId BIGINT
 ) WITH (
     KAFKA_TOPIC='orders',
@@ -66,12 +72,12 @@ Then, create the table with the aggregation:
 ```
 CREATE TABLE product_counts
 WITH (
-    KAFKA_TOPIC = 'product_counts',
+    KAFKA_TOPIC = 'product-counts',
     VALUE_FORMAT = 'JSON',
     PARTITIONS = 1
 ) AS SELECT
         productId,
-    COUNT(*) AS products_count
+        COUNT(*) AS products_count
     FROM
         orders_stream
     GROUP BY
@@ -89,6 +95,8 @@ Some other useful queries:
 
 ```
 SHOW streams;
+
+SHOW tables;
 
 DROP TABLE product_counts;
 

@@ -26,20 +26,20 @@ object OrderVoucherEnricherTopology {
 
     // Branching for voucher to apply present or not
     val branches = orders
-      .split(Named.as("voucher_"))
+      .split(Named.as("voucher-"))
       .branch(voucherPresent, Branched.as("present"))
-      .branch(voucherNotPresent, Branched.as("not_present"))
+      .branch(voucherNotPresent, Branched.as("not-present"))
       .noDefaultBranch()
 
     // If voucher is present in the order, apply it by joining with vouchers GlobalKTable
-    val voucherApplied = branches("voucher_present")
+    val voucherApplied = branches("voucher-present")
       .join(vouchers)(
         (_: OrderId, o: Order) => o.voucherId,
         (o: Order, v: Voucher) => o.copy(price = o.price * (1 - v.percentage))
       )
 
     // Merge vouchers branches back
-    val merged = branches("voucher_not_present").merge(voucherApplied)
+    val merged = branches("voucher-not-present").merge(voucherApplied)
 
     // Send all the orders to another topic
     merged.to("orders-voucher-applied")(Produced.`with`[OrderId, Order])
