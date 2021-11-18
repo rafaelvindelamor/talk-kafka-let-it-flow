@@ -102,3 +102,19 @@ DROP TABLE product_counts;
 
 DROP STREAM orders_stream;
 ```
+
+### References
+
+#### Books
+
+- [Mastering Kafka Streams and ksqlDB](https://www.confluent.io/resources/ebook/mastering-kafka-streams-and-ksqldb/)
+- [Kafka: The Definitive Guide](https://www.confluent.io/resources/kafka-the-definitive-guide/)
+- [Designing Event-Driven Systems](https://www.confluent.io/designing-event-driven-systems/)
+
+#### Links
+
+- [Consume From Closest Replica](https://cwiki.apache.org/confluence/display/KAFKA/KIP-392%3A+Allow+consumers+to+fetch+from+closest+replica)
+- [Exactly-Once Semantics](https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it)
+- [KRaft](https://developer.confluent.io/learn/kraft)
+- [Cooperative Rebalancing](https://www.confluent.io/blog/cooperative-rebalancing-in-kafka-streams-consumer-ksqldb)
+- [Kafka Configuration](https://kafka.apache.org/documentation/#configuration)
