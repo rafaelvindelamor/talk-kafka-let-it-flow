@@ -1,26 +1,60 @@
 # Kafka: Let It Flow
 
-### Environment
-- Java 16
-- Scala 2.13
-- sbt 1.4.3
-- Docker
-- Kafka 3.0.0 (https://kafka.apache.org/downloads)
+### Environment Versions
+- Java 17 LTS
+- Scala 2.13.8
+- sbt 1.6.2
+- docker 20.10.14
 - Confluent Platform (https://www.confluent.io/get-started/) (https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html)
+- Kafka 3.1.0 (https://kafka.apache.org/downloads)
 
-### Kafka Streams Examples
+### Kafka Environment
 
-In order to run the example in `io.demo.kafka.streams.Application`, you need to first start a Kafka broker. One of the easiest ways, as we are going to use ksqlDB later, is by using Confluent Platform. We decided to use `docker-compose` option:
+To run all the examples, you need to initialize our Kafka environment first. In order to do so, one of the easiest ways is using Confluent Platform.
+
+Download Confluent Platform `docker-compose.yml` file, and then run the following command:
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 You can check the status with:
 
 ```
-docker-compose ps
+docker compose ps
 ```
+
+Once everything is up, you are ready to go! We can go to http://localhost:9021/clusters and check that your cluster is healthy.
+
+To do a clean restart, perform the following command:
+
+```
+docker compose down
+```
+
+### Kafka Move APIs Examples
+
+#### Producer
+
+You can run the following examples and play with different configuration options:
+- `io.demo.kafka.move.producer.A01BasicMandatoryConfigProducer`
+- `io.demo.kafka.move.producer.A02BasicOptionalConfigProducer`
+- `io.demo.kafka.move.producer.A03FireAndForgetProducer`
+- `io.demo.kafka.move.producer.A04SyncProducer`
+- `io.demo.kafka.move.producer.A05AsyncProducer`
+
+#### Consumer
+
+You can run the following examples and play with different configuration options:
+- `io.demo.kafka.move.consumer.A01BasicMandatoryConfigConsumer`
+- `io.demo.kafka.move.consumer.A02BasicOptionalConfigConsumer`
+- `io.demo.kafka.move.consumer.A03SyncPollCommitConsumer`
+- `io.demo.kafka.move.consumer.A04SyncRecordCommitConsumer`
+- `io.demo.kafka.move.consumer.A05AsyncRecordCommitConsumer`
+
+### Kafka Streams Examples
+
+In order to run the example in `io.demo.kafka.streams.Application`, you need to first start the Kafka environment. 
 
 To create and populate the topics used in the example, run the following scripts:
 - `scripts/topic-creation.sh`
@@ -40,7 +74,7 @@ We are going to create a `table` in which we are going to have the count by the 
 First, connect to ksqlDB:
 
 ```
-docker-compose exec ksqldb-cli ksql http://ksqldb-server:8088
+docker compose exec ksqldb-cli ksql http://ksqldb-server:8088
 ```
 
 Configure `auto.offset.reset`:
