@@ -10,9 +10,11 @@
 
 ### Kafka Environment
 
+Install Kafka CLI by running `brew install kafka`
+
 To run all the examples, you need to initialize our Kafka environment first. In order to do so, one of the easiest ways is using Confluent Platform.
 
-Download Confluent Platform `docker-compose.yml` file, and then run the following command:
+Download Confluent Platform [link](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-1-download-and-start-cp), and then run the following command:
 
 ```
 docker compose up -d
@@ -56,12 +58,12 @@ You can run the following examples and play with different configuration options
 
 In order to run the example in `io.demo.kafka.streams.Application`, you need to first start the Kafka environment. 
 
-To create and populate the topics used in the example, run the following scripts:
-- `scripts/topic-creation.sh`
-- `scripts/topic-filling.sh`
+To create and populate the topics used in the example, let's move to `scripts` folder and run the following scripts:
+- `./topic-creation.sh`
+- `./topic-filling.sh`
 
 If you want to see the output in realtime, run also the following script:
-- `scripts/topic-consume.sh`
+- `./topic-consume.sh`
 
 Finally, execute `io.demo.kafka.streams.Application` and you should see some events published and consumed by the previous consumer.
 
@@ -125,6 +127,9 @@ To visualize the data:
 SELECT * FROM product_counts EMIT CHANGES;
 ```
 
+Now could be an interesting point to run again `./topic-filling.sh` in a different terminal and see
+how PRODUCT_COUNT column changes.
+
 Some other useful queries:
 
 ```
@@ -136,6 +141,12 @@ DROP TABLE product_counts;
 
 DROP STREAM orders_stream;
 ```
+
+### Troubleshooting
+
+We have found that sometimes we need to add more memory to our docker local in order to keep all 
+containers of Confluent platform running, please increase memory if some containers are exited after 
+starting the platform.
 
 ### References
 
