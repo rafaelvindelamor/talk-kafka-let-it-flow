@@ -1,10 +1,10 @@
-package io.demo.kafka.producer
+package io.demo.kafka.move.producer
 
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
 import java.util.{Properties, UUID}
 
-object A03FireAndForgetProducer extends App {
+object A04SyncProducer extends App {
 
   // https://kafka.apache.org/documentation/#producerconfigs
   val properties: Properties = {
@@ -14,21 +14,24 @@ object A03FireAndForgetProducer extends App {
     props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer")
     props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
     // Optional properties
-    props.put("client.id", this.getClass.getCanonicalName)
-    props.put("linger.ms", "5000")
+    props.put("client.id", this.getClass.getCanonicalName) // https://kafka.apache.org/documentation/#consumerconfigs_client.id
+    props.put("linger.ms", "0") // https://kafka.apache.org/documentation/#producerconfigs_linger.ms
+    props.put("acks", "1") // https://kafka.apache.org/documentation/#producerconfigs_acks
     props
   }
 
-  val producer = new KafkaProducer[String, String](properties)
   val topic = "quickstart-events"
+
+  val producer = new KafkaProducer[String, String](properties)
 
   val record = new ProducerRecord[String, String](topic, UUID.randomUUID().toString)
 
   try {
-    producer.send(record)
+    val recordMetadata = producer.send(record).get()
+    println(s"""offset=${recordMetadata.offset}""")
   } catch {
     case _: Throwable => println("Booom!")
   }
 
-  Thread.sleep(1000)
+  producer.close()
 }
