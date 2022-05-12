@@ -10,11 +10,11 @@
 
 ### Kafka Environment
 
-Install Kafka CLI by running `brew install kafka`
+Install Kafka CLI by running `brew install kafka`.
 
 To run all the examples, you need to initialize our Kafka environment first. In order to do so, one of the easiest ways is using Confluent Platform.
 
-Download Confluent Platform [link](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-1-download-and-start-cp), and then run the following command:
+Download [Confluent Platform](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-1-download-and-start-cp), and then run the following command:
 
 ```
 docker compose up -d
@@ -127,8 +127,7 @@ To visualize the data:
 SELECT * FROM product_counts EMIT CHANGES;
 ```
 
-Now could be an interesting point to run again `./topic-filling.sh` in a different terminal and see
-how PRODUCT_COUNT column changes.
+Now we can run again `./topic-filling.sh` in a different terminal and see how PRODUCT_COUNT column changes in real time.
 
 Some other useful queries:
 
@@ -144,8 +143,7 @@ DROP STREAM orders_stream;
 
 ### Troubleshooting
 
-We have found that sometimes we need to add more memory to our docker local in order to keep all 
-containers of Confluent platform running, please increase memory if some containers are exited after 
+We have found that sometimes we need to add more memory to our docker local in order to keep all containers of Confluent Platform running, please increase memory if some containers are exited after 
 starting the platform.
 
 ### References
